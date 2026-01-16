@@ -66,7 +66,7 @@
                     <h2 class="titulo-skill">Minhas Habilidades</h2>
                     <div class="box">
                         <form name="search">
-                            <input id="skill-search" type="text" class="input" name="txt">
+                            <input id="skill-search" type="text" class="input" name="txt" autocomplete="off">
                         </form>
                         <i class="bi bi-search"></i>
                     </div>

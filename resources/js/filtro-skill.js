@@ -1,36 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const input = document.querySelector('#skill-search');
-    const cardsContainer = document.querySelector('#skills-cards');
-    if (!input || !cardsContainer) return;
+  const habilidade = document.getElementById('habilidade');
+  const input = document.getElementById('skill-search');
+  const box = input?.closest('.box');
 
-    const searchBox = input.closest('.box');
-    const cards = Array.from(cardsContainer.querySelectorAll('.box'));
+  if (!habilidade || !input || !box) return;
 
-    const filterCards = () => {
-        const q = input.value.trim().toLowerCase();
+  const isMobile = () => window.matchMedia('(max-width: 576px)').matches;
 
-        searchBox.classList.toggle('open', q !== '' || document.activeElement === input);
+  if (!isMobile()) return;
 
-        cards.forEach(card => {
-            const text = (card.querySelector('p')?.textContent || '').toLowerCase();
-            card.style.display = !q || text.includes(q) ? 'flex' : 'none';
-        });
-    };
+  function open() {
+    habilidade.classList.remove('mobile-closing');
+    habilidade.classList.add('mobile-expanded');
+    input.focus();
+  }
 
-    input.addEventListener('focus', filterCards);
-    input.addEventListener('input', filterCards);
+  function close() {
+    habilidade.classList.remove('mobile-expanded');
+    habilidade.classList.add('mobile-closing');
 
-    input.addEventListener('blur', () => {
-        setTimeout(() => {
-            if (!input.value.trim()) searchBox.classList.remove('open');
-        }, 0);
-    });
+    setTimeout(() => {
+      habilidade.classList.remove('mobile-closing');
+      input.value = '';
+    }, 300);
+  }
 
-    input.addEventListener('keydown', e => {
-        if (e.key === 'Escape') {
-            input.value = '';
-            input.blur();
-            filterCards();
-        }
-    });
+  box.addEventListener('click', () => {
+    if (!habilidade.classList.contains('mobile-expanded')) {
+      open();
+    }
+  });
+
+  input.addEventListener('blur', () => {
+    if (!input.value.trim()) {
+      close();
+    }
+  });
 });

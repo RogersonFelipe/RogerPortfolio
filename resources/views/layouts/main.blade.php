@@ -21,11 +21,12 @@
             <a class="navbar-brand" href="#sobre">
                 <h2>Portfólio</h2>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false">
+            <button class="navbar-toggler"
+                type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end px-4" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav d-flex align-items-center">
                     <li class="nav-item">
                         <a class="nav-link fw-bold" aria-current="page" href="#sobre">Sobre</a>
                     </li>
