@@ -455,11 +455,6 @@ nav.navbar .container .nav-link,
     display: flex;
     padding: 0;
 }
-
-#projectModal .modal-card img {
-    max-width: 610px;
-}
-
 #projectModal .info {
     background: #0d1117;
     padding: 2rem;
